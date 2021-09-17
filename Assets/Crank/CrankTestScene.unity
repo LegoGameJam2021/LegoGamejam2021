@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe7e12eb649af4a4ba18b814d05ba7aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hubType: 3
+  hubType: 0
 --- !u!4 &657479316
 Transform:
   m_ObjectHideFlags: 0
@@ -176,8 +176,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 700901347}
-  - component: {fileID: 700901346}
   - component: {fileID: 700901348}
+  - component: {fileID: 700901349}
+  - component: {fileID: 700901346}
   m_Layer: 0
   m_Name: ControllerConnector
   m_TagString: Untagged
@@ -194,7 +195,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 700901345}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e25e272910c3cf40843f8095b2f8269, type: 3}
+  m_Script: {fileID: 11500000, guid: 8e8c1113bea5d434eb2443cef62300a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   connectToBLE: 1
@@ -228,6 +229,22 @@ MonoBehaviour:
   serviceNameValue: {fileID: 0}
   portValue: {fileID: 0}
   stateValue: {fileID: 0}
+--- !u!114 &700901349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700901345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492df2d80bcc2e842b291c738660935c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  planeTransform: {fileID: 0}
+  planeThrust: {fileID: 0}
+  rollFactor: -10
+  pitchFactor: 10
 --- !u!1 &1780464397
 GameObject:
   m_ObjectHideFlags: 0
