@@ -53,17 +53,7 @@ public class CrankHandler : AbstractServiceUI, ILEGOGeneralServiceDelegate
             var speed = newValue.RawValues[0].ToString();
             print("Speed: " + speed);
         }
-    }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        print(motor.Speed);
     }
 }
