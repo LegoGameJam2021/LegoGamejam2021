@@ -1,4 +1,13 @@
 {
+  "scopedRegistries": [
+    {
+    "name": "Lego Public",
+    "url": "https://upm.services.lego.com/public",
+    "scopes": [
+      "com.lego"
+    ]
+  }
+  ],
   "dependencies": {
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.build-report-inspector": "0.2.2-preview",

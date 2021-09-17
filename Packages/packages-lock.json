@@ -16,17 +16,6 @@
         "com.unity.render-pipelines.universal": "10.5.0"
       }
     },
-    "com.lego.minidoll": {
-      "version": "file:com.lego.minidoll",
-      "depth": 0,
-      "source": "embedded",
-      "dependencies": {
-        "com.unity.render-pipelines.universal": "10.5.0",
-        "com.lego.materials": "0.2.3-preview",
-        "com.unity.animation.rigging": "1.0.3",
-        "com.unity.sharp-zip-lib": "1.2.2-preview"
-      }
-    },
     "com.lego.minifig": {
       "version": "file:com.lego.minifig",
       "depth": 0,
