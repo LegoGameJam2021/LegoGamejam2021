@@ -118,3 +118,5 @@ cpplog.txt
 
 # Ignore build reports
 /Assets/BuildReports*
+Packages/com.lego.modelimporter/Data/LegacyParts.zip
+Packages/com.lego.modelimporter/Data/NewParts.zip
