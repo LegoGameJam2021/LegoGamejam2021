@@ -1,3 +1,4 @@
+using LEGOMinifig;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -30,7 +31,7 @@ public class FlashLightController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -46,16 +47,15 @@ public class FlashLightController : MonoBehaviour
                 StartCoroutine(this.FlashLight());
             }
 
-
             // Do raycast
-            if(Time.realtimeSinceStartup > timeSinceHitenemy + flashlightStunCooldown &&
-                Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out RaycastHit hit, 100f))
+            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out RaycastHit hit, 100f))
             {
                 if (hit.transform.CompareTag("Enemy"))
                 {
                     // do we stuff
                     timeSinceHitenemy = Time.realtimeSinceStartup;
-
+                    var controller = hit.transform.gameObject.GetComponent<MinifigController>();
+                    controller.StartCoolDown();
 
                 }
             }
@@ -96,7 +96,7 @@ public class FlashLightController : MonoBehaviour
 
     private IEnumerator FlashLight()
     {
-        while(this.FlashLightValue > 0 && this.FlashLightValue < this.StartPointOfFlashing)
+        while (this.FlashLightValue > 0 && this.FlashLightValue < this.StartPointOfFlashing)
         {
             this.Light.intensity = 0;
             yield return new WaitForSeconds(1f);
