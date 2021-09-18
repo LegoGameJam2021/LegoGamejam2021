@@ -8,7 +8,7 @@ using UnityEngine.Animations.Rigging;
 public class WalkController : MonoBehaviour
 {
     public float walkSpeed = 10f;
-    public float rotationSpeed = 10f;
+    public float rotationSpeed = 1f;
     public OrientationController orientationController;
     private Rigidbody rb;
 
