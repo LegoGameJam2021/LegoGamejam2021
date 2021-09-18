@@ -127,3 +127,9 @@ Assets/LEGO/Data/Materials/Minifig/HatsAndHair/
 Assets/LEGO/Data/Textures/Minifig/Bodies/
 
 Assets/LEGO/Data/Textures/Minifig/Faces/
+
+Packages/com.lego.minifig/Data/
+
+Packages/com.lego.minifig/Runtime/SpecialAnimationBehavior.cs
+
+Packages/com.lego.modelimporter/Data/
