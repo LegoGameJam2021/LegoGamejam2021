@@ -27,7 +27,7 @@ public class CrankController : MonoBehaviour, ILEGOGeneralServiceDelegate
     // Update is called once per frame
     void Update()
     {
-        if(Time.realtimeSinceStartup > timeSinceCrank + rotationCrankDelay)
+        if(IsCranking && Time.realtimeSinceStartup > timeSinceCrank + rotationCrankDelay)
             IsCranking = false;
     }
     
