@@ -113,6 +113,8 @@ sysinfo.txt
 crashlytics-build.properties
 *.orig
 *.orig.meta
+cppdata.txt
+cpplog.txt
 
 # Ignore build reports
 /Assets/BuildReports*
