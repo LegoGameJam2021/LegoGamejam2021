@@ -285,9 +285,12 @@ namespace LEGOMinifig
 
         public void StartCoolDown()
         {
-            this.inCoolDown = true;
-            this.coolDownCounter = this.coolDownTime;
-            this.StartCoroutine(RestartFollowing());
+            if (this.state == State.Following)
+            {
+                this.inCoolDown = true;
+                this.coolDownCounter = this.coolDownTime;
+                this.StartCoroutine(RestartFollowing());
+            }
         }
 
         private IEnumerator RestartFollowing()
@@ -461,7 +464,7 @@ namespace LEGOMinifig
                         }
                     case State.Moving:
                         {
-                           
+
                             if (waitedTime > currentMove.moveDelay)
                             {
                                 var direction = currentMove.destination - transform.position;

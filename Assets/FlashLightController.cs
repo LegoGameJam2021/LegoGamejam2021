@@ -48,7 +48,7 @@ public class FlashLightController : MonoBehaviour
             }
 
             // Do raycast
-            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out RaycastHit hit, 100f))
+            if (Time.realtimeSinceStartup > timeSinceHitenemy + flashlightStunCooldown && Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out RaycastHit hit, 100f))
             {
                 if (hit.transform.CompareTag("Enemy"))
                 {
