@@ -16,6 +16,12 @@ namespace LEGOMinifig
         const float distanceEpsilon = 0.1f;
         const float angleEpsilon = 0.1f;
 
+        public float coolDownCounter;
+
+        public float coolDownTime;
+
+        public bool inCoolDown;
+
         // Input type for controlling the minifig.
         enum InputType
         {
@@ -276,6 +282,12 @@ namespace LEGOMinifig
             controller.Move(Vector3.down * 0.01f);
         }
 
+        public void StartCoolDown()
+        {
+            this.inCoolDown = true;
+            this.coolDownCounter = this.coolDownTime;
+        }
+
         void Update()
         {
             if (exploded)
@@ -440,6 +452,15 @@ namespace LEGOMinifig
                         }
                     case State.Moving:
                         {
+                            if (this.inCoolDown)
+                            {
+                                this.coolDownCounter -= Time.deltaTime;
+                                if (this.coolDownCounter <= 0)
+                                {
+                                    this.inCoolDown = false;
+                                }
+                                break;
+                            }
                             if (waitedTime > currentMove.moveDelay)
                             {
                                 var direction = currentMove.destination - transform.position;
