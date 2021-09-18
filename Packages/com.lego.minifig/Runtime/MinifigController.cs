@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
@@ -286,6 +287,14 @@ namespace LEGOMinifig
         {
             this.inCoolDown = true;
             this.coolDownCounter = this.coolDownTime;
+            this.StartCoroutine(RestartFollowing());
+        }
+
+        private IEnumerator RestartFollowing()
+        {
+            this.SetState(State.Idle);
+            yield return new WaitForSeconds(this.coolDownTime);
+            this.SetState(State.Following);
         }
 
         void Update()
