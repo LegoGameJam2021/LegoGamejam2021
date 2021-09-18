@@ -1,4 +1,4 @@
-﻿// Copyright (C) LEGO System A/S - All Rights Reserved
+// Copyright (C) LEGO System A/S - All Rights Reserved
 // Unauthorized copying of this file, via any medium is strictly prohibited
 
 using UnityEngine;
@@ -24,7 +24,6 @@ namespace LEGOMinifig
 
         public override void OnStateMachineExit(Animator animator, int stateMachinePathHash)
         {
-            minifigController.SpecialAnimationFinished();
         }
     }
 
