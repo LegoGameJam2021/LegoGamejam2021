@@ -31,11 +31,6 @@ public class FlashLightController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            this.TurnOnOff();
-        }
-
         //print(FlashLightValue);
         if (FlashLightIsOn && this.FlashLightValue > 0)
         {

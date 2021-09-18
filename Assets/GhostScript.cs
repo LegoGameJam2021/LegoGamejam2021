@@ -31,7 +31,8 @@ public class GhostScript : MonoBehaviour
             Thread.Sleep(1000);
             controller.Explode();
         };
-        enemy.Follow(player, 2f, onCompleted, 1, 0);
+        if(enemy != null)
+            enemy.Follow(player, 2f, onCompleted, 1, 0);
 
     }
 
