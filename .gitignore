@@ -118,3 +118,12 @@ cpplog.txt
 
 # Ignore build reports
 /Assets/BuildReports*
+Assets/LEGO/Data/Materials/Minifig/Bodies/
+
+Assets/LEGO/Data/Materials/Minifig/Faces/
+
+Assets/LEGO/Data/Materials/Minifig/HatsAndHair/
+
+Assets/LEGO/Data/Textures/Minifig/Bodies/
+
+Assets/LEGO/Data/Textures/Minifig/Faces/
