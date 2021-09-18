@@ -452,15 +452,7 @@ namespace LEGOMinifig
                         }
                     case State.Moving:
                         {
-                            if (this.inCoolDown)
-                            {
-                                this.coolDownCounter -= Time.deltaTime;
-                                if (this.coolDownCounter <= 0)
-                                {
-                                    this.inCoolDown = false;
-                                }
-                                break;
-                            }
+                           
                             if (waitedTime > currentMove.moveDelay)
                             {
                                 var direction = currentMove.destination - transform.position;
@@ -557,6 +549,15 @@ namespace LEGOMinifig
                         }
                     case State.Following:
                         {
+                            if (this.inCoolDown)
+                            {
+                                this.coolDownCounter -= Time.deltaTime;
+                                if (this.coolDownCounter <= 0)
+                                {
+                                    this.inCoolDown = false;
+                                }
+                                break;
+                            }
                             if (waitedTime > currentFollowTarget.followDelay)
                             {
                                 var direction = currentFollowTarget.target.position - transform.position;
