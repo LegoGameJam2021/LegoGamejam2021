@@ -36,20 +36,21 @@ public class FlashLightController : MonoBehaviour
             this.TurnOnOff();
         }
 
-        print(FlashLightValue);
+        //print(FlashLightValue);
         if (FlashLightIsOn && this.FlashLightValue > 0)
         {
             var newVal = this.FlashLightValue - (Time.deltaTime * 100 / SecondsToEmpty);
             this.FlashLightValue = newVal > 0 ? newVal : 0;
-            if (this.FlashLightValue == 0)
-            {
-                this.FlashLightIsOn = false;
-                this.SetLight();
-            }
+
             if (this.FlashLightValue < this.StartPointOfFlashing)
             {
                 StartCoroutine(this.FlashLight());
             }
+        }
+        if (this.FlashLightValue == 0)
+        {
+            this.FlashLightIsOn = false;
+            this.SetLight();
         }
 
         this.FlashLightIsEmpty = this.FlashLightValue == 0;

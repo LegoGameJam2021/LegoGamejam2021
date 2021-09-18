@@ -14,7 +14,6 @@ public class OrientationController : MonoBehaviour, ILEGOGeneralServiceDelegate
 
     ILEGODevice device;
 
-    public Slider FlashLightSlider;
 
     float crankValue = 0;
 
