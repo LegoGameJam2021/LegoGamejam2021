@@ -7,8 +7,7 @@ using UnityEngine.UI;
 
 public class CrankController : MonoBehaviour, ILEGOGeneralServiceDelegate
 {
-    [SerializeField] float rollFactor = -10f;
-    [SerializeField] float pitchFactor = 10f;
+    [SerializeField] float rotationCrankDelay = 0.2f; // How many seconds should we wait after a crank before allowing rotations gaain
 
     LEGOTechnicMotor motor;
 
@@ -19,10 +18,17 @@ public class CrankController : MonoBehaviour, ILEGOGeneralServiceDelegate
 
     float crankValue = 0;
 
+    public bool IsCranking = false;
+
+    float timeSinceCrank;
+
+
 
     // Update is called once per frame
     void Update()
     {
+        if(Time.realtimeSinceStartup > timeSinceCrank + rotationCrankDelay)
+            IsCranking = false;
     }
     
 
@@ -32,7 +38,6 @@ public class CrankController : MonoBehaviour, ILEGOGeneralServiceDelegate
 
         this.device = device;
 
-        Debug.LogFormat("Setting pitch motor");// Must be connected to port C.
 
         var largeMotor = ServiceHelper.GetServicesOfType(device, IOType.LEIOTypeTechnicMotorL);
         print("Found motor? " + largeMotor != null);
@@ -55,11 +60,13 @@ public class CrankController : MonoBehaviour, ILEGOGeneralServiceDelegate
     {
         if(service == motor)
         {
+            timeSinceCrank = Time.realtimeSinceStartup;
+            if(oldValue.RawValues[0] != newValue.RawValues[0])
+                IsCranking = true;
             crankValue = newValue.RawValues[0];
             print("Old: " + oldValue.RawValues[0] + " new: " + newValue.RawValues[0]);
             var delta = oldValue.RawValues[0] - newValue.RawValues[0];
             this.flashLightController.CrankFlashLight(Mathf.Abs(delta));
-
         }
     }
 
