@@ -17,10 +17,15 @@ public class FlashLightController : MonoBehaviour
 
     public Light Light;
 
+
     [Range(0, 100)]
     public float FlashLightValue = 0;
 
     public int StartPointOfFlashing = 10;
+
+    public float flashlightStunCooldown = 10f;
+
+    float timeSinceHitenemy;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +36,6 @@ public class FlashLightController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //print(FlashLightValue);
         if (FlashLightIsOn && this.FlashLightValue > 0)
         {
             var newVal = this.FlashLightValue - (Time.deltaTime * 100 / SecondsToEmpty);
@@ -40,6 +44,20 @@ public class FlashLightController : MonoBehaviour
             if (this.FlashLightValue < this.StartPointOfFlashing)
             {
                 StartCoroutine(this.FlashLight());
+            }
+
+
+            // Do raycast
+            if(Time.realtimeSinceStartup > timeSinceHitenemy + flashlightStunCooldown &&
+                Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out RaycastHit hit, 100f))
+            {
+                if (hit.transform.CompareTag("Enemy"))
+                {
+                    // do we stuff
+                    timeSinceHitenemy = Time.realtimeSinceStartup;
+
+
+                }
             }
         }
         if (this.FlashLightValue == 0)
