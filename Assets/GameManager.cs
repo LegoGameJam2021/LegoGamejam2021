@@ -5,7 +5,17 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
-    public int amountOfClues = 10;
+    public int amountOfClues = 5;
+    public GameObject lastZoneBlocker; // The object blocking the last zone
+
+
+    // When all the clues have been found, the player gets access to the last zone
+    public void EnableLastZone()
+    {
+
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {
