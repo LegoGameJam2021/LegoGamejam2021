@@ -118,3 +118,5 @@ cpplog.txt
 
 # Ignore build reports
 /Assets/BuildReports*
+
+*.unity
