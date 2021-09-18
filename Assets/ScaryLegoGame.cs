@@ -9,12 +9,14 @@ public class ScaryLegoGame : MonoBehaviour
     public DeviceHandler deviceHandler;
     CrankController joystickController;
     OrientationController orientationController;
+    ColorScannerController colorScannerController;
 
     // Start is called before the first frame update
     void Start()
     {
         joystickController = GetComponent<CrankController>();
         orientationController = GetComponent<OrientationController>();
+        colorScannerController = GetComponent<ColorScannerController>();
         deviceHandler.OnDeviceInitialized += OnDeviceInitialized;
         if (connectToBLE == true)
             deviceHandler.AutoConnectToDeviceOfType(HubType.Technic);
@@ -23,7 +25,11 @@ public class ScaryLegoGame : MonoBehaviour
     public void OnDeviceInitialized(ILEGODevice device)
     {
         Debug.LogFormat("OnDeviceInitialized {0}", device);
-        joystickController.SetUpWithDevice(device);
-        orientationController.SetUpWithDevice(device);
+        if(joystickController != null)
+            joystickController.SetUpWithDevice(device);
+        if(orientationController != null)
+            orientationController.SetUpWithDevice(device);
+        if(colorScannerController != null)
+            colorScannerController.SetUpWithDevice(device);
     }
 }

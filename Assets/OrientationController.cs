@@ -58,7 +58,6 @@ public class OrientationController : MonoBehaviour, ILEGOGeneralServiceDelegate
             Rotation.y = newValue.RawValues[0] - oldValue.RawValues[0];
             Rotation.z = newValue.RawValues[2] - oldValue.RawValues[2];
 
-            print($"Old: ({oldValue.RawValues[1]}, {oldValue.RawValues[0]}, {oldValue.RawValues[2]}) new: ({newValue.RawValues[1]}, {newValue.RawValues[0]}, {newValue.RawValues[2]})");
         }
     }
 
