@@ -14,14 +14,15 @@ public class CrankController : MonoBehaviour, ILEGOGeneralServiceDelegate
 
     ILEGODevice device;
 
-    public Slider FlashLightSlider;
+
+    public FlashLightController flashLightController;
 
     float crankValue = 0;
+
 
     // Update is called once per frame
     void Update()
     {
-        
     }
     
 
@@ -57,9 +58,7 @@ public class CrankController : MonoBehaviour, ILEGOGeneralServiceDelegate
             crankValue = newValue.RawValues[0];
             print("Old: " + oldValue.RawValues[0] + " new: " + newValue.RawValues[0]);
             var delta = oldValue.RawValues[0] - newValue.RawValues[0];
-            print("delta: " + delta);
-            print("Flashlight: " + Mathf.Abs(delta / 100f));
-            this.FlashLightSlider.value += Mathf.Abs(delta/1000f);
+            this.flashLightController.CrankFlashLight(Mathf.Abs(delta));
 
         }
     }
