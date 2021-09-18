@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using UnityEngine;
 using LEGODeviceUnitySDK;
 using System.Linq;
@@ -140,7 +140,6 @@ public class JoystickController : MonoBehaviour, ILEGOGeneralServiceDelegate
             var cmd = new LEGORGBLight.SwitchOffCommand();
             rgbLight.SendCommand(cmd);
         }
-
         Debug.LogFormat("Setting roll motor"); // Must be connected to port A.
         var rollMotors = ServiceHelper.GetServicesOfTypeOnPort(device, IOType.LEIOTypeTechnicMotorXL, 0);
         if (rollMotors == null || rollMotors.Count() == 0)
