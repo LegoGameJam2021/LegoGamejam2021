@@ -33,17 +33,15 @@ public class OrientationController : MonoBehaviour, ILEGOGeneralServiceDelegate
 
         this.device = device;
 
-        Debug.LogFormat("Setting pitch motor");// Must be connected to port C.
-
         var orientationSensors = ServiceHelper.GetServicesOfType(device, IOType.LEIOTypeTechnic3AxisOrientationSensor);
         print("Found orientation sensor? " + orientationSensors != null);
         if (orientationSensors == null || orientationSensors.Count() == 0)
         {
-            Debug.LogFormat("No large motors found!");
+            Debug.LogFormat("No orientation sensor found!");
         }
         else
         {
-            print("Setting up large motor!");
+            print("Setting up orientation sensor!");
             orientationSensor = (LEGOTechnic3AxisOrientationSensor)orientationSensors.First();
             orientationSensor.UpdateInputFormat(new LEGOInputFormat(orientationSensor.ConnectInfo.PortID, orientationSensor.ioType, 0, 1, LEGOInputFormat.InputFormatUnit.LEInputFormatUnitRaw, true));
             orientationSensor.RegisterDelegate(this);
@@ -56,10 +54,11 @@ public class OrientationController : MonoBehaviour, ILEGOGeneralServiceDelegate
     {
         if (service == orientationSensor)
         {
-            Rotation.x = newValue.RawValues[1];
-            Rotation.y = newValue.RawValues[0];
-            Rotation.z = newValue.RawValues[2];
+            Rotation.x = newValue.RawValues[1] - oldValue.RawValues[1];
+            Rotation.y = newValue.RawValues[0] - oldValue.RawValues[0];
+            Rotation.z = newValue.RawValues[2] - oldValue.RawValues[2];
 
+            print($"Old: ({oldValue.RawValues[1]}, {oldValue.RawValues[0]}, {oldValue.RawValues[2]}) new: ({newValue.RawValues[1]}, {newValue.RawValues[0]}, {newValue.RawValues[2]})");
         }
     }
 

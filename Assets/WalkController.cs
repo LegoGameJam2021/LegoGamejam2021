@@ -8,6 +8,8 @@ using UnityEngine.Animations.Rigging;
 public class WalkController : MonoBehaviour
 {
     public float walkSpeed = 10f;
+    public float rotationSpeed = 10f;
+    public OrientationController orientationController;
     private Rigidbody rb;
 
     private void Start()
@@ -17,9 +19,15 @@ public class WalkController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        var horizontal = Input.GetAxisRaw("Horizontal");
-        var vertical = Input.GetAxisRaw("Vertical");
-        rb.velocity = new Vector3(horizontal,0, vertical).normalized * walkSpeed;
+        // Movement
+        var horizontal = Input.GetAxisRaw("Horizontal") * transform.right;
+        var vertical = Input.GetAxisRaw("Vertical") * transform.forward;
+        rb.velocity = (horizontal + vertical) * walkSpeed;
+
+        // Rotation
+        if(orientationController != null)
+            transform.Rotate(Vector3.up, -orientationController.Rotation.y * rotationSpeed);
+
     }
 
 }
