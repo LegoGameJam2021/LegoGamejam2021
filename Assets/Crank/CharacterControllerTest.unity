@@ -147,21 +147,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3333476284959633010, guid: 1d8237e5d53e9ef4285215e54f995152,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 17.06
-      objectReference: {fileID: 0}
-    - target: {fileID: 3333476284959633010, guid: 1d8237e5d53e9ef4285215e54f995152,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 13.57
-      objectReference: {fileID: 0}
-    - target: {fileID: 3333476286779682549, guid: 1d8237e5d53e9ef4285215e54f995152,
-        type: 3}
-      propertyPath: rotationSpeed
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 3333476286779682549, guid: 1d8237e5d53e9ef4285215e54f995152,
         type: 3}
       propertyPath: crankController
