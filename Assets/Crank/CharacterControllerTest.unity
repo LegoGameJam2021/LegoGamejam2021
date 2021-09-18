@@ -123,6 +123,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &412710296 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3333476285778985584, guid: 1d8237e5d53e9ef4285215e54f995152,
+    type: 3}
+  m_PrefabInstance: {fileID: 417387216}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492df2d80bcc2e842b291c738660935c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &417387216
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -130,6 +142,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1575956389391078325, guid: 1d8237e5d53e9ef4285215e54f995152,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3333476286779682549, guid: 1d8237e5d53e9ef4285215e54f995152,
+        type: 3}
+      propertyPath: crankController
+      value: 
+      objectReference: {fileID: 412710296}
     - target: {fileID: 4295318014372287060, guid: 1d8237e5d53e9ef4285215e54f995152,
         type: 3}
       propertyPath: m_Name
@@ -283,7 +305,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1473114918
 GameObject:
@@ -379,7 +401,7 @@ Transform:
   m_LocalScale: {x: 4.1948, y: 4.1948, z: 4.1948}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6120019679136774
 GameObject:
@@ -2754,7 +2776,7 @@ Transform:
   - {fileID: 2473187259546455933}
   - {fileID: 3526220779121088055}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2714912751097869214
 Transform:
