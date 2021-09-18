@@ -133,3 +133,5 @@ Packages/com.lego.minifig/Data/
 Packages/com.lego.minifig/Runtime/SpecialAnimationBehavior.cs
 
 Packages/com.lego.modelimporter/Data/
+Packages/com.lego.minifig/Materials/Arm.mat
+Packages/com.lego.minifig/Runtime/SpecialAnimationBehavior.cs.meta
