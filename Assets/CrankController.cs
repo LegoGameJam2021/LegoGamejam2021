@@ -61,7 +61,8 @@ public class CrankController : MonoBehaviour, ILEGOGeneralServiceDelegate
         if(service == motor)
         {
             timeSinceCrank = Time.realtimeSinceStartup;
-            if(newValue.RawValues[0] - oldValue.RawValues[0] > 1 )
+            flashLightController.FlashLightIsOn = true;
+            if (newValue.RawValues[0] != oldValue.RawValues[0]  )
                 IsCranking = true;
             crankValue = newValue.RawValues[0];
             print("Old: " + oldValue.RawValues[0] + " new: " + newValue.RawValues[0]);

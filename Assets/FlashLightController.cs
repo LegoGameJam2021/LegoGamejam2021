@@ -48,7 +48,7 @@ public class FlashLightController : MonoBehaviour
             }
 
             // Do raycast
-            if (Time.realtimeSinceStartup > timeSinceHitenemy + flashlightStunCooldown && Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out RaycastHit hit, 100f))
+            if (Time.realtimeSinceStartup > timeSinceHitenemy + flashlightStunCooldown && Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out RaycastHit hit, 40f))
             {
                 if (hit.transform.CompareTag("Enemy"))
                 {
@@ -63,8 +63,8 @@ public class FlashLightController : MonoBehaviour
         if (this.FlashLightValue == 0)
         {
             this.FlashLightIsOn = false;
-            this.SetLight();
         }
+        this.SetLight();
 
         this.FlashLightIsEmpty = this.FlashLightValue == 0;
         this.FlashLightSlider.value = FlashLightValue / 100f;
@@ -91,7 +91,7 @@ public class FlashLightController : MonoBehaviour
 
     private void SetLight()
     {
-        this.Light.intensity = this.FlashLightIsOn ? 3 : 0;
+        this.Light.intensity = this.FlashLightIsOn ? 42.5f : 0;
     }
 
     private IEnumerator FlashLight()
@@ -100,7 +100,7 @@ public class FlashLightController : MonoBehaviour
         {
             this.Light.intensity = 0;
             yield return new WaitForSeconds(1f);
-            this.Light.intensity = 3;
+            this.Light.intensity = 42.5f;
             yield return new WaitForSeconds(2f);
         }
 
