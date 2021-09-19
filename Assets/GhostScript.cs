@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
+using UnityEngine.UI;
 
 public class GhostScript : MonoBehaviour
 {
@@ -20,8 +21,11 @@ public class GhostScript : MonoBehaviour
 
     public UIManager uiManager;
 
+    public GameObject EnergyBar;
     private void Start()
     {
+        EnergyBar.SetActive(false);
+
         Action onCompleted = () =>
         {
             PlayerBody.SetActive(true);
@@ -34,6 +38,8 @@ public class GhostScript : MonoBehaviour
             Thread.Sleep(1000);
             controller.Explode();
             Thread.Sleep(2000);
+            EnergyBar.SetActive(false);
+
             uiManager.ShowDeathMessage();
 
         };
@@ -47,7 +53,9 @@ public class GhostScript : MonoBehaviour
 
     private IEnumerator EnemyFollowPlayer(Action onCompleted)
     {
-        yield return new WaitForSeconds(8f);
+
+        yield return new WaitForSeconds(12f);
+        EnergyBar.SetActive(true);
         if (enemy != null)
             enemy.Follow(player, 2f, onCompleted, 1, 0);
     }
