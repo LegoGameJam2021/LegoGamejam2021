@@ -17,6 +17,8 @@ public class UIManager : MonoBehaviour
 
     public Text StartText3;
 
+    public Text StartHeadline;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,7 +47,9 @@ public class UIManager : MonoBehaviour
         this.SetUIElementForCrossFade(this.StartText1);
         this.SetUIElementForCrossFade(this.StartText2);
         this.SetUIElementForCrossFade(this.StartText3);
+        this.SetUIElementForCrossFade(this.StartHeadline);
 
+        this.StartHeadline.CrossFadeAlpha(1, 1f, false);
         this.StartPanel.CrossFadeAlpha(1, 1f, false);
         this.StartText1.CrossFadeAlpha(1, 3f, false);
         yield return new WaitForSeconds(3);
@@ -54,6 +58,7 @@ public class UIManager : MonoBehaviour
         this.StartText3.CrossFadeAlpha(1, 3f, false);
         yield return new WaitForSeconds(7);
 
+        this.StartHeadline.CrossFadeAlpha(0, 3f, false);
         this.StartPanel.CrossFadeAlpha(0, 3f, false);
         this.StartText1.CrossFadeAlpha(0, 1f, false);
         this.StartText2.CrossFadeAlpha(0, 1f, false);
