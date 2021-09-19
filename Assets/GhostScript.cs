@@ -1,5 +1,6 @@
 using LEGOMinifig;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
@@ -17,6 +18,8 @@ public class GhostScript : MonoBehaviour
 
     public Camera CameraOnPlayer;
 
+    public UIManager uiManager;
+
     private void Start()
     {
         Action onCompleted = () =>
@@ -30,10 +33,25 @@ public class GhostScript : MonoBehaviour
             MinifigController controller = PlayerBody.GetComponent<MinifigController>();
             Thread.Sleep(1000);
             controller.Explode();
+            Thread.Sleep(2000);
+            uiManager.ShowDeathMessage();
+
         };
-        if(enemy != null)
-            enemy.Follow(player, 2f, onCompleted, 1, 0);
+        uiManager.ShowStartScene();
+
+        StartCoroutine(EnemyFollowPlayer(onCompleted));
+
+
 
     }
+
+    private IEnumerator EnemyFollowPlayer(Action onCompleted)
+    {
+        yield return new WaitForSeconds(8f);
+        if (enemy != null)
+            enemy.Follow(player, 2f, onCompleted, 1, 0);
+    }
+
+    
 
 }
