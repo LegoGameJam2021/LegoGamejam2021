@@ -35,9 +35,9 @@ public class GhostScript : MonoBehaviour
             var newPosition = new Vector3(oldposition.x - 4f * dirVector.x, oldposition.y, oldposition.z - 4f * dirVector.z);
             Camera.main.transform.position = newPosition;
             MinifigController controller = PlayerBody.GetComponent<MinifigController>();
-            Thread.Sleep(1000);
+            //Thread.Sleep(1000);
             controller.Explode();
-            Thread.Sleep(2000);
+            //Thread.Sleep(2000);
             EnergyBar.SetActive(false);
 
             uiManager.ShowDeathMessage();
